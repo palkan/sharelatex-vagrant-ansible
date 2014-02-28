@@ -1,0 +1,30 @@
+- name: Checking installed version of redis  
+  shell: /usr/bin/test "$(redis-cli -v 2> /dev/null)" = "redis-cli {{ redis_version }}"
+  register: _installed
+  ignore_errors: True
+
+- name: Purge previous
+  apt: pkg=redis-server state=absent
+  when: _installed.rc == 1
+
+- name: Download Redis
+  get_url: url=http://download.redis.io/releases/redis-{{redis_version}}.tar.gz dest=/tmp
+  when: _installed.rc == 1
+
+- name: Untar Redis
+  command: chdir=/tmp creates=redis-{{redis_version}} tar -xzf redis-{{redis_version}}.tar.gz
+  when: _installed.rc == 1
+
+- name: Install Redis
+  command: creates=/usr/local/bin/redis-server chdir=/tmp/redis-{{redis_version}} make install
+  when: _installed.rc == 1
+
+- name: Create user redis
+  user: name=redis system=yes home=/var/lib/redis shell=/bin/false
+  when: _installed.rc == 1
+
+- name: Configure Upstart for Redis
+  copy: src=upstart_redis.conf dest=/etc/init/redis.conf force=no
+
+- name: Start Redis
+  service: name=redis state=started enabled=yes

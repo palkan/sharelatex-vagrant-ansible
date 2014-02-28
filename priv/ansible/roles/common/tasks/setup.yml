@@ -1,0 +1,31 @@
+---
+- name: upgrade
+  action: apt update_cache=yes upgrade=yes
+
+- name: ensure the system encoding is utf-8
+  sudo: yes
+  template: src=locale dest=/etc/default/locale owner=root group=root mode=644
+
+- name: install packages
+  action: apt pkg=$item state=installed
+  with_items:
+    - build-essential
+    - automake
+    - bison
+    - autoconf
+    - pkg-config
+    - libreadline6
+    - libreadline6-dev
+    - openssl
+    - libssl-dev
+    - curl
+    - git
+    - zlib1g
+    - zlib1g-dev
+    - libyaml-dev
+    - libsqlite3-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - curl
+    - nfs-common
+    - vim

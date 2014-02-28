@@ -1,0 +1,5 @@
+- name: Grunt install
+  command: sudo grunt install chdir={{app_dir}}
+
+- name: Grunt check
+  command: sudo grunt check --force chdir={{app_dir}}

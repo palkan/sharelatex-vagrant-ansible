@@ -1,0 +1,3 @@
+- name: Install TexLive
+  action: apt pkg=texlive state=latest
+- include: latexmk.yml tags=latex

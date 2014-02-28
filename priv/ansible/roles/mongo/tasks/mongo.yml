@@ -1,0 +1,17 @@
+- name: Add 10gen key 
+  apt_key: id=7F0CEB10 url="http://docs.mongodb.org/10gen-gpg-key.asc" state=present
+
+- name: Copy 10gen.list to /etc/apt/sources.list.d
+  copy: src=10gen.list dest=/etc/apt/sources.list.d/10gen.list
+
+- name: Make sure 10gen.list is present
+  file: path=/etc/apt/sources.list.d/10gen.list state=file
+
+- name: Update apt-cache
+  apt: update_cache=yes
+
+- name: Install MongoDB
+  apt: pkg=mongodb-10gen force=yes
+
+- name: Make sure MongoDB is running
+  service: name=mongodb state=started

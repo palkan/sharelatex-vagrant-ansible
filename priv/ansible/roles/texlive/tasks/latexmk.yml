@@ -1,0 +1,5 @@
+- name: Download latexmk
+  get_url: "url={{ latexmk_src }} dest=/usr/local/bin/latexmk" 
+
+- name: Update permissions  
+  command: "sudo chmod a+x /usr/local/bin/latexmk"

@@ -1,0 +1,14 @@
+---
+- hosts: development
+  user: vagrant
+  sudo: true
+  vars_files:
+    - group_vars/development.yml
+    
+  roles:
+    - common
+    - mongo
+    - redis
+    - nodejs
+    - texlive
+    - sharelatex

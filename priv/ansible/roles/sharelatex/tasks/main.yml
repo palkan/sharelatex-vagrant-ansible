@@ -1,0 +1,3 @@
+- include: grunt.yml tags=grunt
+- include: sharelatex_git.yml tags=sharelatex
+- include: sharelatex_grunt.yml tags=sharelatex

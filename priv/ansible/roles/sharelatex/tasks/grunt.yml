@@ -1,0 +1,5 @@
+- name: Install Grunt.js package globally.
+  npm: name=grunt-cli global=yes
+
+- name: Install node-gyp globally 
+  npm: name=node-gyp global=yes
