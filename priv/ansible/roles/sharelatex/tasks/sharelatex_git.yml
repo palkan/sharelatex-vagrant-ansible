@@ -1,7 +1,5 @@
 - name: Git Checkout ShareLatex master
-  git: repo={{git_repo}}
-        dest={{app_dir}}
-        version=master
+  git: repo={{git_repo}} dest={{app_dir}}
 
 - name: Setup config
   template: src=settings.development.coffee.j2 dest={{app_dir}}/config/settings.development.coffee 

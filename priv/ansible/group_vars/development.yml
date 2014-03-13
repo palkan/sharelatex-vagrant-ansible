@@ -19,7 +19,7 @@ latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/
 
 # sharelatex repo
 
-git_repo: https://github.com/sharelatex/sharelatex.git
+git_repo: git://github.com/sharelatex/sharelatex.git
 
 # aws credentials
 
