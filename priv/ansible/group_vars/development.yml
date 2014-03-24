@@ -21,6 +21,10 @@ latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/
 
 git_repo: git://github.com/sharelatex/sharelatex.git
 
+# datastore: options fs or s3
+
+backend: "fs"
+
 # aws credentials
 
 aws_key: ""
