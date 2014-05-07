@@ -7,7 +7,7 @@
   template: src=locale dest=/etc/default/locale owner=root group=root mode=644
 
 - name: install packages
-  action: apt pkg=$item state=installed
+  action: apt pkg={{ item }} state=installed
   with_items:
     - build-essential
     - automake
