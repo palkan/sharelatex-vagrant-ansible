@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "ansible" do |ansible|
       ansible.playbook = "priv/ansible/share_latex.yml"
       ansible.inventory_path = "priv/ansible/dev_hosts"
+      ansible.limit = "all" 
     end
   end
 
