@@ -15,7 +15,7 @@ redis_version: "2.6.16"
 
 # latexmk latest soource
 
-latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/latexmk.pl
+latexmk_src: http://mirrors.ctan.org/support/latexmk/latexmk.pl
 
 # sharelatex repo
 
