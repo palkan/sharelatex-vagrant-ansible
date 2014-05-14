@@ -5,8 +5,8 @@ app_dir: /webapps/sharelatex
 # nodejs params
 
 node_version: "0.10.26"
-node_prefix: "node-v${node_version}"
-node_tarball: "${node_prefix}.tar.gz"
+node_prefix: "node-v{{ node_version }}"
+node_tarball: "{{node_prefix}}.tar.gz"
 node_path: "/usr/local"
 
 # redis
@@ -15,7 +15,7 @@ redis_version: "2.6.16"
 
 # latexmk latest soource
 
-latexmk_src: http://mirror.physik-pool.tu-berlin.de/tex-archive/support/latexmk/latexmk.pl
+latexmk_src: http://mirrors.ctan.org/support/latexmk/latexmk.pl
 
 # sharelatex repo
 
