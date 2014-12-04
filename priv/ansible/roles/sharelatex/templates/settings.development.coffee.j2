@@ -16,20 +16,33 @@ httpAuthUsers[httpAuthUser] = httpAuthPass
 sessionSecret = "secret-please-change"
 
 module.exports =
+
 	# File storage
 	# ------------
 	#
-	# ShareLaTeX stores binary files like images in S3.
-	# Fill in your Amazon S3 credentials below.
-	s3:
-		key: "{{ aws_key }}"
-		secret: "{{ aws_secret }}"
-		buckets:
-			# The S3 bucket name to store binary files in
-			user_files: "{{ aws_bucket }}"
-	
-	# Tell the filestore api to use s3 to persist files, in future more backends can be added
-	filestoreBackend: "s3"
+	# ShareLaTeX needs somewhere to store binary files like images.
+	# There are currently two options:
+	#     Your local filesystem (the default)
+	#     Amazon S3
+	filestore:
+		# which backend persistor to use.
+		# choices are 
+		# s3 - Amazon S3
+		# fs - local filesystem
+		backend: "{{ backend }}"	
+		stores:
+			# where to store user and template binary files
+			#
+			# For Amazon S3 this is the bucket name to store binary files
+			#
+			# For local filesystem this is the directory to store the files in.
+			# This path must exist, not be tmpfs and be writable to by the user sharelatex is run as.
+			user_files: Path.resolve(__dirname + "/../user_files")
+		# Uncomment if you need to configure your S3 credentials
+		# s3:
+		#	# if you are using S3, then fill in your S3 details below
+		# 	key: "{{ aws_key }}"
+		# 	secret: "{{ aws_secret }}"
 
 	# Databases
 	# ---------
