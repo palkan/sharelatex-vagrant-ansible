@@ -1,8 +1,10 @@
 - name: Git Checkout ShareLatex master
-  git: repo={{git_repo}} dest={{app_dir}}
+  git: repo={{git_repo}} dest={{app_dir}} accept_hostkey=true
+  register: repo
 
 - name: Setup config
-  template: src=settings.development.coffee.j2 dest={{app_dir}}/config/settings.development.coffee 
+  template: src=settings.development.coffee.j2 dest={{app_dir}}/config/settings.development.coffee
 
 - name: NPM update via package.json
   npm: path={{app_dir}}
+  when: repo.changed

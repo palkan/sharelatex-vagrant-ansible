@@ -24,10 +24,14 @@ Installs:
 ## Options
 There are several configuration parameters available to edit in [development.yml](https://github.com/palkan/sharelatex-vagrant-ansible/blob/master/priv/ansible/group_vars/development.yml) such as project root, node and redis versions, sharelatex repo url etc.
 
+## Provision
+
+If you want to re-provision your VM you should run ```vagrant provision```. It is possible to provide tags (or skip_tags) using ```TAGS``` (```SKIP_TAGS```) environment vars.
+
 ## Run 
 Login into VM (```vagrant ssh```).
 Navigate to project root (default - '/webapps/sharelatex').
-Run ```grunt run``` and open browser on [http://localhost:3001/](http://localhost:3001/) (*Note: port is not 3000 but 3001 by default!*)
+Run ```grunt run``` and open browser on [http://localhost:3002/](http://localhost:3001/) (*Note: port is not 3000 but 3002 by default!*)
 
 ### Possible issues
 

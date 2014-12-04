@@ -11,9 +11,12 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "priv/ansible/share_latex.yml"
     ansible.inventory_path = "priv/ansible/dev_hosts"
+    ansible.tags = ENV["TAGS"]
+    ansible.skip_tags = ENV["SKIP_TAGS"]
   end
 
-  config.vm.network "forwarded_port", guest: 3000, host: 3001
+  config.vm.network :forwarded_port, host: 2211, guest: 22 
+  config.vm.network "forwarded_port", guest: 3000, host: 3002
   config.vm.network "private_network", ip: "192.168.51.111"
 
   config.vm.synced_folder ".", "/vagrant", :disabled => true

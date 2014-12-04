@@ -4,11 +4,10 @@
   sudo: true
   vars_files:
     - group_vars/development.yml
-    
   roles:
-    - common
-    - mongo
-    - redis
-    - nodejs
-    - texlive
-    - sharelatex
+    - { role: common, tags: ['initial']}
+    - { role: mongo, tags: ['deps', 'mongo']}
+    - { role: redis, tags: ['deps', 'redis']}
+    - { role: nodejs, tags: ['deps', 'nodejs']}
+    - { role: texlive, tags: ['deps', 'texlive']}
+    - { role: sharelatex, tags: ['sharelatex']}
