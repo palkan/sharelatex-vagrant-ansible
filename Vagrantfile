@@ -22,17 +22,12 @@ Vagrant.configure("2") do |config|
         sh.path = "priv/windows.sh"
         sh.args = "share_latex.yml dev_hosts"
       end
-    
     else
-    
-      # Provisioning configuration for Ansible (for Mac/Linux hosts).
-      config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "priv/ansible/share_latex.yml"
-        ansible.inventory_path = "priv/ansible/dev_hosts"
-        ansible.tags = ENV["TAGS"]
-        ansible.skip_tags = ENV["SKIP_TAGS"]
-        ansible.limit = "all" 
-      end
+      ansible.playbook = "priv/ansible/share_latex.yml"
+      ansible.inventory_path = "priv/ansible/dev_hosts"
+      ansible.tags = ENV["TAGS"]
+      ansible.skip_tags = ENV["SKIP_TAGS"]
+      ansible.limit = "all" 
     end
   end
 
