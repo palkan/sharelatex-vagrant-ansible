@@ -13,9 +13,9 @@ Installs:
 
 ## Requirements
 
-* Vagrant >=1.4
+* Vagrant >=1.7
 * VirtualBox >=4.0
-* [Ansible](http://docs.ansible.com/intro_installation.html)
+* [Ansible](http://docs.ansible.com/intro_installation.html) >=1.8
 
 ## Setup
 
@@ -31,7 +31,7 @@ If you want to re-provision your VM you should run ```vagrant provision```. It i
 ## Run 
 Login into VM (```vagrant ssh```).
 Navigate to project root (default - '/webapps/sharelatex').
-Run ```grunt run``` and open browser on [http://localhost:3002/](http://localhost:3001/) (*Note: port is not 3000 but 3002 by default!*)
+Run ```grunt run``` and open browser on [http://localhost:3002/](http://localhost:3002/) (*Note: port is not 3000 but 3002 by default!*)
 
 ### Possible issues
 
